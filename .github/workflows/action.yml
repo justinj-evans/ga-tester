@@ -17,4 +17,6 @@ jobs:
           upgrade: "True"
           downgrade: "True"
           new_package: "True"
+          token: ${{ secrets.REPO_ACCESS }}
+
         
