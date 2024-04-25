@@ -12,11 +12,14 @@ jobs:
   monitor-package-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: justinj-evans/monitor-package-version@v1.0.2
+      - uses: justinj-evans/monitor-package-version@v1.0.0-alpha
         with:
           upgrade: "True"
           downgrade: "True"
           new_package: "True"
-          token: ${{ secrets.REPO_ACCESS }}
+          token: "${{ secrets.REPO_ACCESS }}"
+          repository: "${{ github.repository }}"
+          commit_sha: "${{ github.sha }}"
+          existing_sha: "${{ github.event.before }}"
 
         
