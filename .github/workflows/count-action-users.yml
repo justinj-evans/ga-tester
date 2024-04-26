@@ -15,6 +15,6 @@ jobs:
     - name: Generate user count JSON endpoint
       uses: cicirello/count-action-users@v1
       with:
-        action-list: justinj-evans/monitor-package-version@v1.0.2
-      env:
+        action-list: justinj-evans/monitor-package-version
+      env:  
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
