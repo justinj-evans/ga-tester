@@ -12,7 +12,7 @@ jobs:
   monitor-package-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: justinj-evans/monitor-package-version@v1.0.1-alpha
+      - uses: justinj-evans/monitor-package-version@v1.0.2
         with:
           upgrade: "True"
           downgrade: "True"
