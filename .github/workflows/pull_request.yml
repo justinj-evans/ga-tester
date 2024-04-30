@@ -15,3 +15,7 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+      - name: pull_request_sha
+        run: echo "${{ github.event.pull_request.base.sha }}"
+      - name: pull_number
+        run: echo "${{ github.event.pull_request.number }}"
