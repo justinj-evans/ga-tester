@@ -1,0 +1,23 @@
+name: Print Pull Request Number
+
+on:
+    push:
+      branches:
+        - '*'
+    pull_request:
+          types: [opened, reopened]
+
+jobs:
+  print-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: pull_request_base_sha
+        run: echo "${{ github.event.pull_request.base.sha }}"
+      - name: pull_number
+        run: echo "${{ github.event.pull_request.number }}"
+      - name: pull_request_read_sha
+        run: echo "${{ github.event.pull_request.head.sha }}"
