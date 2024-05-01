@@ -1,9 +1,9 @@
 name: local monitor-package-version
 
 on:
-  push:
-    branches:
-      - '*'
+  # push:
+  #   branches:
+  #     - '*'
 
   pull_request:
         types: [opened, reopened]
@@ -12,14 +12,17 @@ jobs:
   monitor-package-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: justinj-evans/monitor-package-version@v1.0.2
+      - uses: justinj-evans/monitor-package-version@v1.1.2
         with:
           upgrade: "True"
           downgrade: "True"
           new_package: "True"
           token: "${{ secrets.REPO_ACCESS }}"
           repository: "${{ github.repository }}"
-          commit_sha: "${{ github.sha }}"
           existing_sha: "${{ github.event.before }}"
+          commit_sha: "${{ github.sha }}"
+          pull_number: "${{ github.event.pull_request.number }}"
+          pull_request_base_sha: "${{ github.event.pull_request.base.sha }}"
+          pull_request_head_sha: "${{ github.event.pull_request.head.sha }}"
 
         
